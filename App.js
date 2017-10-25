@@ -45,12 +45,7 @@ export default class App extends Component<{}> {
   render() {
     return (
       <View>
-        <View>
-          <Text>
-             { this.state.astronomy.title }
-          </Text>
-        </View>
-        <Text>Cliff Test</Text>
+        <AstronomyCard data={ this.state.astronomy } />
       </View>
     );
   }
