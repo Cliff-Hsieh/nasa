@@ -1,23 +1,49 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, ScrollView, StyleSheet, Dimensions } from 'react-native';
+
+const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    width: 0.75 * width,
   },
-  welcome: {
-    fontSize: 20,
+  title: {
+    position: 'absolute',
+    width: width,
+    top: 50,
     textAlign: 'center',
-    margin: 10,
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: "#6200ea",
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  img: {
+    flex: 1,
+    position: 'relative',
+    height: 500,
+      width: width,
+    marginTop: 100,
   },
+  post: {
+    flex: 1,
+    position: 'relative',
+      width: 0.8 * width,
+    fontSize: 12,
+    top: 20,
+    lineHeight: 15,
+    letterSpacing: 0.66,
+      fontWeight: 'bold',
+    left: 20,
+     marginBottom: 40,
+  },
+    copyright: {
+        position: 'relative',
+        bottom: 10,
+        backgroundColor: "#000",
+        color: "#FFF",
+        fontSize: 20,
+        textAlign: 'center',
+    },
 });
 
 
@@ -25,12 +51,12 @@ const AstronomyCard = (props) => {
   const { date, explanation, hdurl, title, url } = props.data;
 
   return (
-    <View style={ styles.container }>
-      <Text>{ title }</Text>
-      <Image src={ url } alt={ title } />
-      <Text style={ styles.welcome } >{ explanation }</Text>
-      <Text>{ date }</Text>
-    </View>
+      <ScrollView>
+      <Text style={ styles.title }>{ title }</Text>
+      <Image source={{ uri: url }} style={ styles.img } alt={ title } />
+      <Text style={ styles.post }>{ explanation }</Text>
+      <Text style={ styles.copyright }>{ date }</Text>
+      </ScrollView>
   )
 }
 
