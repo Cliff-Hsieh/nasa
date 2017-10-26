@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, ScrollView, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, Image, ScrollView, StyleSheet, Dimensions, TouchableHighlight, Linking } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
@@ -53,8 +53,10 @@ const AstronomyCard = (props) => {
   return (
       <ScrollView>
       <Text style={ styles.title }>{ title }</Text>
-      <Image source={{ uri: url }} style={ styles.img } alt={ title } />
-      <Text style={ styles.post }>{ explanation }</Text>
+      <TouchableHighlight onPress={() => Linking.openURL( hdurl ) }>
+        <Image source={{ uri: url }} style={ styles.img } alt={ title }  />
+      </TouchableHighlight>
+      <Text style={ styles.post } >{ explanation }</Text>
       <Text style={ styles.copyright }>{ date }</Text>
       </ScrollView>
   )
