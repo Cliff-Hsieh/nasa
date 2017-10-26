@@ -7,9 +7,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: 0.75 * width,
+    flexDirection: 'row',
   },
   title: {
-    position: 'absolute',
+    position: 'relative',
     width: width,
     top: 50,
     textAlign: 'center',
@@ -20,30 +21,29 @@ const styles = StyleSheet.create({
   img: {
     flex: 1,
     position: 'relative',
-    height: 500,
-      width: width,
+    height: 0.5 * width,
+    width: 0.5 * width,
+    left: 0.25 * width,
+    alignItems: 'center',
     marginTop: 100,
   },
   post: {
     flex: 1,
     position: 'relative',
-      width: 0.8 * width,
+    textAlign: 'left',
+    fontFamily: 'arial',
     fontSize: 12,
-    top: 20,
-    lineHeight: 15,
-    letterSpacing: 0.66,
-      fontWeight: 'bold',
-    left: 20,
-     marginBottom: 40,
+    marginTop: 40,
   },
-    copyright: {
-        position: 'relative',
-        bottom: 10,
-        backgroundColor: "#000",
-        color: "#FFF",
-        fontSize: 20,
-        textAlign: 'center',
-    },
+  copyright: {
+    position: 'relative',
+    marginTop: 40,
+    bottom: 10,
+    color: "#6200ea",
+    fontSize: 12,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
 });
 
 
