@@ -3,18 +3,20 @@ import { View, Text, Image, ScrollView, TouchableHighlight, Linking } from 'reac
 import styles from './Styles';
 
 class AstronomyCard extends React.Component {
+
     state = {
-      show: true
-    };
+      display: this.props.data.display,
+    }
 
     onPress = () => {
-        const { show } = this.state;
-        this.setState({ show: !show });
+        const { display } = this.state;
+        this.setState({ display: !display });
     };
 
     render() {
-        const { date, explanation, hdurl, title, url } = this.props.data;
-        const { show } = this.state;
+        const { date, explanation, hdurl, title, url } = this.props.data.astronomy;
+        const { display } = this.state
+
         return (
             <ScrollView>
                 <Text style={ styles.title }>{ title }</Text>
@@ -22,9 +24,9 @@ class AstronomyCard extends React.Component {
                     <Image source={{ uri: url }} style={ styles.img } alt={ title }S  />
                 </TouchableHighlight>
                 {
-                    show
-                    ? <Text style={ styles.post } >{ explanation }</Text>
-                    : null
+                  display
+                  ? <Text style={ styles.post } >{ explanation }</Text>
+                  : null
                 }
                 <Text style={ styles.copyright }>{ date }</Text>
             </ScrollView>

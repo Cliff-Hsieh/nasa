@@ -15,7 +15,7 @@ export default class App extends Component<{}> {
         super();
 
         this.state = {
-            astronomy: []
+            astronomy: [],
         }
     }
 
@@ -32,12 +32,15 @@ export default class App extends Component<{}> {
             .catch( error => {
                 console.log(error, "get data fail!")
             });
+        this.setState({
+          display: true,
+        });
     }
 
     render() {
         return (
             <View>
-                <AstronomyCard data={ this.state.astronomy } />
+                <AstronomyCard data={ this.state } />
             </View>
         );
     }
