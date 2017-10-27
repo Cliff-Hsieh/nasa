@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
-import App from './App';
+import index from './src/index';
 
-AppRegistry.registerComponent('nasa', () => App);
+AppRegistry.registerComponent('nasa', () => index);
